@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History of Legal Philosophy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              sans: ['"Inter"', 'sans-serif'],
+            },
+            colors: {
+              parchment: '#fdfbf7',
+              ink: '#2d2a26',
+              accent: '#8c7b75',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #fdfbf7;
+        color: #2d2a26;
+      }
+      /* Custom scrollbar for a cleaner look */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c7c7c7;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+      }
+
+      /* Print Styles for Save as PDF */
+      @media print {
+        @page {
+          margin: 1.5cm;
+          size: A4;
+        }
+        body {
+          background-color: white !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        /* Hide UI elements */
+        header button, .no-print, .print-hidden {
+          display: none !important;
+        }
+        /* Adjust Header for print */
+        header {
+          position: static !important;
+          border-bottom: 2px solid #8c7b75 !important;
+          background: transparent !important;
+          box-shadow: none !important;
+          margin-bottom: 2rem;
+        }
+        header h1 {
+          font-size: 24pt !important;
+          text-align: center;
+        }
+        /* Ensure timeline line prints */
+        .timeline-line {
+          background-color: #d6d3d1 !important; /* stone-300 */
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        /* Prevent page breaks inside cards */
+        .timeline-item {
+          break-inside: avoid;
+          page-break-inside: avoid;
+          margin-bottom: 2rem !important;
+        }
+        /* Simplify layout for print (linearize) */
+        .md\:w-5\/12 {
+          width: 80% !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          text-align: left !important;
+          padding: 0 !important;
+        }
+        .order-1, .order-2, .order-3 {
+          order: unset !important;
+        }
+        /* Hide the center avatars to save ink and space, or keep them small */
+        .print-avatar {
+          display: none !important;
+        }
+        /* Show card borders clearly */
+        .timeline-card {
+          border: 1px solid #ccc !important;
+          box-shadow: none !important;
+          padding: 1rem !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
